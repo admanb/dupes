@@ -5,20 +5,17 @@ $(document).ready(function () {
 
 	var cleanDups = function (input) {
 		var found = {};
+		var result = [];
 		for(var i = 0; i < input.length; i++)
 		{
 			var addy = input[i];
-			if(found[addy] != undefined)
-			{
-				input.splice(i, 1); // remove one item
-				i = i - 1; // we have to shift our index backwards so we don't skip the next item
-			}
-			else
+			if(found[addy] == undefined)
 			{
 				found[addy] = true;
+				result.push(input[i]);
 			}
 		}
-		return input;
+		return result;
 	}
 
 	function getRandomInt(min, max) {
